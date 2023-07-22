@@ -17,6 +17,8 @@ const Login = () => {
             alert('Please Enter Email');
             return;
         }
+            alert('Success');
+            return;
     };
 
   return (
@@ -32,7 +34,6 @@ const Login = () => {
         style={styles.textInputStyle} 
         placeholder='Enter Email'
         value={textInputEmail}
-        keyboardType='email-address'
         onChangeText={(value)=>{setTextInputEmail(value)}}/>
       <Text>{'\n\n'}</Text>
 
