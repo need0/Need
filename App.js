@@ -5,6 +5,7 @@ import ViewBoxesWithColorAndText from './components/ViewBoxesWithColorAndText';
 import DisplayandImage from './components/DisplayandImage';
 import LostOfGreeting from './components/LostOfGreeting';
 import CustomText from './components/CustomText';
+import Counter from './components/Counter';
 
 export default function App() {
   return (
@@ -12,7 +13,8 @@ export default function App() {
       {/* <ViewBoxesWithColorAndText/> */}
       {/* <DisplayandImage/> */}
       {/* <LostOfGreeting/> */}
-      <CustomText/>
+      {/* <CustomText/> */}
+      <Counter/>
     </View>
   );
 }
