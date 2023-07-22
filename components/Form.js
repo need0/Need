@@ -35,10 +35,12 @@ const styles = StyleSheet.create({
         justifyContent:'center',    
         alignItems:'center' ,
     },
-    textInputStyle:{
+    TextInput:{
         width:'100%',
+        height:40,
         paddingHorizontal:5,
-        borderWidth : 1,
+        borderWidth : 0.5,
         marginTop:15,
+        fontSize:20
     }
 })
