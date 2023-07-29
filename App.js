@@ -3,13 +3,15 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import App_btn from './components/App_btn';
 import TouchableExample from './components/TouchableExample';
+import RecapLogin from './components/RecapLogin';
 
 export default function App() {
   return (
     <View style={styles.container}>
 
       {/* <App_btn/> */}
-      <TouchableExample/>
+      {/* <TouchableExample/> */}
+      <RecapLogin/>
     </View>
   );
 }
