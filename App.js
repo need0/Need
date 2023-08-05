@@ -15,7 +15,7 @@ export default function App() {
       {/* <IncrementCounter/> */}
       {/* <Form/> */}
       {/* <Login/> */}
-      <TouchablePractice/>
+      {/* <TouchablePractice/> */}
     </View>
   );
 }
