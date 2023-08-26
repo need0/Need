@@ -14,6 +14,7 @@ import FlatList_Example1 from './components/FlatList_Example1';
 import FlatList_HeaderFooter from './components/FlatList_HeaderFooter';
 import FlastListAPI from './components/FlastListAPI';
 import New from './components/New';
+import ProductScreen from './components/ProductScreen';
 
 export default function App() {
   return (
@@ -33,14 +34,16 @@ export default function App() {
       {/* <FlatList_HeaderFooter/> */}
 
       {/* <FlastListAPI/> */}
-      <New/>
-
+      {/* <New/> */}
+      <ProductScreen/>
+      
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container:{
-     flex:1,   
+     flex:1,
+     padding: 10
   }
  })
