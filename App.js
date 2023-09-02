@@ -3,38 +3,42 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
 
+import HomeScreen from './components/HomeScreen';
+import DetailsScreen from './components/DetailsScreen';
 
-function HomeScreen({navigation}){
-  return(
-    <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
-      <Text>Home Screen</Text>
-      <Button
-       title='Go to Details'
-       onPress={()=>navigation.navigate('Details')}/>
-    </View>
-  )
-}
-
-function DetailsScreen(){
-  return(
-    <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
-      <Text>Details Screen</Text>
-    </View>
-  )
-}
+import FirstPage from './Pages/FirstPage';
+import SecondPage from './Pages/SecondPage';
+import ThirdPage from './Pages/ThirdPage';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     
-    <NavigationContainer initialRouteName='Home'>
-      <Stack.Navigator>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='First'
+      screenOptions={{
+        headerStyle:{
+          backgroundColor:'#0f8aff'
+        },
+        headerTintColor:'#ffff',
+        headerTitleStyle:{
+          fontWeight:'bold',
+        }
+      }}>
         <Stack.Screen 
-         name='Home' 
-         component={HomeScreen}
+         name='First' 
+         component={FirstPage}
          options={{title:'Overview'}}/>
-         <Stack.Screen name='Details' component={DetailsScreen}/>
+
+         <Stack.Screen 
+         name='Second' 
+         component={SecondPage}/>
+
+         <Stack.Screen
+         name='Third'
+         component={ThirdPage}/>
+
       </Stack.Navigator>
     </NavigationContainer>
 
