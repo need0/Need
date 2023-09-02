@@ -1,19 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native'
+import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
 
 import HomeScreen from './components/HomeScreen';
 import DetailsScreen from './components/DetailsScreen';
 
+import FirstPage from './Pages/FirstPage';
+import SecondPage from './Pages/SecondPage';
+import ThirdPage from './Pages/ThirdPage';
+
 const Stack = createNativeStackNavigator();
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-
-      <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'
+    
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='First'
       screenOptions={{
         headerStyle:{
           backgroundColor:'#0f8aff'
@@ -23,25 +26,25 @@ export default function App() {
           fontWeight:'bold',
         }
       }}>
-
         <Stack.Screen 
-         name='Home' 
-         component={HomeScreen}
-         initialParams = {{ itemId : 53}}/>
+         name='First' 
+         component={FirstPage}
+         options={{title:'FirstPage'}}/>
 
          <Stack.Screen 
-         name='Details' 
-         component={DetailsScreen}/>
+         name='Second' 
+         component={SecondPage}/>
+
+         <Stack.Screen
+         name='Third'
+         component={ThirdPage}/>
 
       </Stack.Navigator>
     </NavigationContainer>
-      
-    </View>
-  );
+
+  )
 }
 
-const styles = StyleSheet.create({
-  container:{
-     flex:1,
-  }
- })
+export default App
+
+const styles = StyleSheet.create({})
