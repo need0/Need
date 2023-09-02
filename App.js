@@ -29,7 +29,7 @@ const App = () => {
         <Stack.Screen 
          name='First' 
          component={FirstPage}
-         options={{title:'Overview'}}/>
+         options={{title:'FirstPage'}}/>
 
          <Stack.Screen 
          name='Second' 
