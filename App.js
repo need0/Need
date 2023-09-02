@@ -1,49 +1,46 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native'
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
 
-import Counter from './components/Counter';
-import MyInput from './components/MyInput';
-import IncrementCounter from './components/IncrementCounter';
-import Form from './components/Form';
-import Login from './components/Login';
-import TouchablePractice from './components/TouchablePractice';
-import Example_useEffect from './components/Example_useEffect';
-import UseEffectFlatList from './components/UseEffectFlatList';
-import RandomUsersScreen from './components/RandomUsersScreen';
-import FlatList_Example1 from './components/FlatList_Example1';
-import FlatList_HeaderFooter from './components/FlatList_HeaderFooter';
-import FlastListAPI from './components/FlastListAPI';
-import New from './components/New';
-import ProductScreen from './components/ProductScreen';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      {/* <Counter/> */}
-      {/* <MyInput/> */}
-      {/* <IncrementCounter/> */}
-      {/* <Form/> */}
-      {/* <Login/> */}
-
-      {/* <TouchablePractice/> */}
-      {/* <Example_useEffect/> */}
-      {/* <UseEffectFlatList/> */}
-
-      {/* <RandomUsersScreen/> */}
-      {/* <FlatList_Example1/> */}
-      {/* <FlatList_HeaderFooter/> */}
-
-      {/* <FlastListAPI/> */}
-      {/* <New/> */}
-      <ProductScreen/>
-      
+function HomeScreen({navigation}){
+  return(
+    <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
+      <Text>Home Screen</Text>
+      <Button
+       title='Go to Details'
+       onPress={()=>navigation.navigate('Details')}/>
     </View>
-  );
+  )
 }
 
-const styles = StyleSheet.create({
-  container:{
-     flex:1,
-     padding: 10
-  }
- })
+function DetailsScreen(){
+  return(
+    <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
+      <Text>Details Screen</Text>
+    </View>
+  )
+}
+
+const Stack = createNativeStackNavigator();
+
+const App = () => {
+  return (
+    
+    <NavigationContainer initialRouteName='Home'>
+      <Stack.Navigator>
+        <Stack.Screen 
+         name='Home' 
+         component={HomeScreen}
+         options={{title:'Overview'}}/>
+         <Stack.Screen name='Details' component={DetailsScreen}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+
+  )
+}
+
+export default App
+
+const styles = StyleSheet.create({})
