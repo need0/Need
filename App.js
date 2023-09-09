@@ -1,50 +1,89 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native'
-import { NavigationContainer } from '@react-navigation/native'
-import {createNativeStackNavigator} from '@react-navigation/native-stack'
+import 'react-native-gesture-handler';
+import { View, Text, style } from 'react-native'
+import React from 'react'
 
-import HomeScreen from './components/HomeScreen';
-import DetailsScreen from './components/DetailsScreen';
-import IndexScreen from './screens/IndexScreen';
-import CreatePostScreen from './screens/CreatePostScreen';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
+import {createDrawerNavigator} from '@react-navigation/drawer';
+
+import FirstPage from './Pages/FirstPage';
+import SecondPage from './Pages/SecondPage';
 
 const Stack = createNativeStackNavigator();
 
-export default function App() {
-  return (
-    <View style={styles.container}>
+function First(){
+    return(
 
-      <NavigationContainer>
-      <Stack.Navigator 
-      mode = 'model'
-      screenOptions={{
-        headerStyle:{
-          backgroundColor:'#7faaff'
-        },
-        headerTintColor:'#ffff',
-        headerTitleStyle:{
-          fontWeight:'bold',
-        }
-      }}>
+        <Stack.Navigator 
+        initialRouteName='First'
+        screenOptions={{
+          headerStyle:{
+            backgroundColor:'#0f8aff85'
+          },
+          headerTintColor:'#fff',
+          headerTitleStyle:{
+            fontWeight:'bold',
+          }
+        }}
+        >
+            <Stack.Screen name='FirstPage' component={FirstPage}/>
+        </Stack.Navigator>
 
-        <Stack.Screen 
-         name='Index' 
-         component={IndexScreen}
-         options={{title:'MainPage'}}/>
-
-         <Stack.Screen 
-         name='CreatePost' 
-         component={CreatePostScreen}/>
-
-      </Stack.Navigator>
-    </NavigationContainer>
-      
-    </View>
-  );
+    )
 }
 
-const styles = StyleSheet.create({
-  container:{
-     flex:1,
-  }
- })
+function Second(){
+    return(
+
+        <Stack.Navigator
+        initialRouteName='First'
+        screenOptions={{
+          headerStyle:{
+            backgroundColor:'#0f8aff85'
+          },
+          headerTintColor:'#fff',
+          headerTitleStyle:{
+            fontWeight:'bold',
+          }
+        }}>
+            <Stack.Screen name='SecondPage' component={SecondPage}/>
+        </Stack.Navigator>
+
+    )
+}
+
+const Drawer = createDrawerNavigator();
+
+function MyDrawer(){
+    return(
+        <Drawer.Navigator
+            screenOptions={{
+            drawerStyle:{
+                backgroundColor: '#eef',
+                width:240,
+            },overlayColor:'#61bfe875',
+            headerTintColor:'#bad6f6',
+            headerTitleStyle:{
+              fontWeight:'bold',
+            },
+            headerStyle:{
+                backgroundColor:'#555'
+            }
+            
+         }}>
+            <Drawer.Screen name='First' component={First}/>
+            <Drawer.Screen name='Second' component={Second}/>
+        </Drawer.Navigator>
+    )
+}
+
+
+const App = () => {
+  return (
+    <NavigationContainer>
+        <MyDrawer/>
+    </NavigationContainer>
+  )
+}
+
+export default App

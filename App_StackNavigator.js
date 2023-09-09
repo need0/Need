@@ -1,47 +1,50 @@
+import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native'
-import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
 
 import HomeScreen from './components/HomeScreen';
 import DetailsScreen from './components/DetailsScreen';
-
+import IndexScreen from './screens/IndexScreen';
+import CreatePostScreen from './screens/CreatePostScreen';
 
 const Stack = createNativeStackNavigator();
 
-const App = () => {
+export default function App() {
   return (
-    
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName='First'
+    <View style={styles.container}>
+
+      <NavigationContainer>
+      <Stack.Navigator 
+      mode = 'model'
       screenOptions={{
         headerStyle:{
-          backgroundColor:'#0f8aff'
+          backgroundColor:'#7faaff'
         },
         headerTintColor:'#ffff',
         headerTitleStyle:{
           fontWeight:'bold',
         }
       }}>
+
         <Stack.Screen 
-         name='First' 
-         component={FirstPage}
-         options={{title:'FirstPage'}}/>
+         name='Index' 
+         component={IndexScreen}
+         options={{title:'MainPage'}}/>
 
          <Stack.Screen 
-         name='Second' 
-         component={SecondPage}/>
-
-         <Stack.Screen
-         name='Third'
-         component={ThirdPage}/>
+         name='CreatePost' 
+         component={CreatePostScreen}/>
 
       </Stack.Navigator>
     </NavigationContainer>
-
-  )
+      
+    </View>
+  );
 }
 
-export default App
-
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container:{
+     flex:1,
+  }
+ })
