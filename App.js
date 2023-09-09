@@ -5,6 +5,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack'
 
 import HomeScreen from './components/HomeScreen';
 import DetailsScreen from './components/DetailsScreen';
+import IndexScreen from './screens/IndexScreen';
+import CreatePostScreen from './screens/CreatePostScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,10 +15,11 @@ export default function App() {
     <View style={styles.container}>
 
       <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'
+      <Stack.Navigator 
+      mode = 'model'
       screenOptions={{
         headerStyle:{
-          backgroundColor:'#0f8aff'
+          backgroundColor:'#7faaff'
         },
         headerTintColor:'#ffff',
         headerTitleStyle:{
@@ -25,13 +28,13 @@ export default function App() {
       }}>
 
         <Stack.Screen 
-         name='Home' 
-         component={HomeScreen}
-         initialParams = {{ itemId : 53}}/>
+         name='Index' 
+         component={IndexScreen}
+         options={{title:'MainPage'}}/>
 
          <Stack.Screen 
-         name='Details' 
-         component={DetailsScreen}/>
+         name='CreatePost' 
+         component={CreatePostScreen}/>
 
       </Stack.Navigator>
     </NavigationContainer>
