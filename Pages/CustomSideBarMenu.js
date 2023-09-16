@@ -37,7 +37,7 @@ const CustomSideBarMenu = (props) => {
 
         </DrawerContentScrollView>
 
-        <Text style={{textAlign: 'center' , fontSize: '16px',color:'gray'}}>
+        <Text style={{textAlign: 'center' , fontSize:16,color:'gray'}}>
             www.tni.ac.th
         </Text>
 
