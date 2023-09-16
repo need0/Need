@@ -1,10 +1,12 @@
 import 'react-native-gesture-handler';
-import { View, Text, style } from 'react-native'
+import { View, Text, style, Linking } from 'react-native'
 import React from 'react'
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
-import {createDrawerNavigator} from '@react-navigation/drawer';
+import {createDrawerNavigator,
+  DrawerContentScrollView,
+  DrawerItemList,DrawerItem} from '@react-navigation/drawer';
 
 import FirstPage from './Pages/FirstPage';
 import SecondPage from './Pages/SecondPage';
@@ -52,11 +54,26 @@ function Second(){
     )
 }
 
+function CustomDrawerContent (props){
+  return(
+      <DrawerContentScrollView {...props}>
+          <DrawerItemList {...props}/>
+          <DrawerItem
+           label="Help"
+           onPress={()=>Linking.openURL('https://reactnative.dev')}
+           
+          />
+      </DrawerContentScrollView>
+
+  )
+}
+
 const Drawer = createDrawerNavigator();
 
 function MyDrawer(){
     return(
         <Drawer.Navigator
+        drawerContent={(props)=><CustomDrawerContent{...props}/>}  
             screenOptions={{
             drawerStyle:{
                 backgroundColor: '#eef',
